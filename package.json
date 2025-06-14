@@ -1,0 +1,23 @@
+{
+  "name": "habits-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabr1elon3/habits-checker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gabr1elon3/habits-checker/issues"
+  },
+  "homepage": "https://github.com/Gabr1elon3/habits-checker#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
