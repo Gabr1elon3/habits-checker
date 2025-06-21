@@ -17,7 +17,7 @@ const createTask = async (req, res) => {
   }
 };
 
-// Get all tasks for the logged-in user
+// Get all tasks for the logged  user
 const getTasks = async (req, res) => {
   try {
     const tasks = await Task.find({ userId: req.user.id, active: true });
@@ -27,7 +27,7 @@ const getTasks = async (req, res) => {
   }
 };
 
-// Soft delete a task
+// This helps to soft delete a task
 const deleteTask = async (req, res) => {
   try {
     const task = await Task.findOne({ _id: req.params.id, userId: req.user.id });
@@ -40,9 +40,28 @@ const deleteTask = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+// Update the  task
+const updateTask = async (req, res) => {
+  try {
+    const updatedTask = await Task.findOneAndUpdate(
+      { _id: req.params.id, user: req.user.id },
+      { $set: req.body },
+      { new: true }
+    );
+
+    if (!updatedTask) {
+      return res.status(404).json({ message: 'Task not found or unauthorized' });
+    }
+
+    res.status(200).json(updatedTask);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
 module.exports = {
   createTask,
   getTasks,
   deleteTask,
+  updateTask,
 };
