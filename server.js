@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 
 // Placeholders for actual route files
 app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/tasks', require('./routes/taskRoutes'));
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
