@@ -14,9 +14,9 @@ connectDB();
 // Middleware
 app.use(cors({
   origin: 'http://localhost:3000',
-  credentials: true, // Enable only if you plan to send cookies
+  credentials: true,
 }));
-app.use(express.json()); // Parse JSON bodies
+app.use(express.json());
 
 // Routes
 app.get('/', (req, res) => {
@@ -24,7 +24,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/users', require('./routes/userRoutes'));
-app.use('/api/tasks', require('./routes/taskRoutes')); // ✅ No need to require taskRoutes twice
+app.use('/api/tasks', require('./routes/taskRoutes'));
+app.use('/api/stats', require('./routes/statsRoutes')); // ✅ ← Add this line
 
 // Start server
 app.listen(PORT, () => {
