@@ -14,7 +14,7 @@ connectDB();
 // Middleware - Updated CORS for deployment
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://your-frontend-domain.com' // 👈 Replace with your deployed frontend URL
+  'https://habits-checker-frontend.vercel.app/' // 👈 Replace with your deployed frontend URL
 ];
 
 app.use(cors({
