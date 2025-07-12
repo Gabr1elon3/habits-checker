@@ -1,14 +1,13 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db');
 const cors = require('cors');
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
-connectDB();
+ require('./config/db'); // Ensure database connection is established
+ 
 
 // Middleware - Updated CORS for deployment
 const allowedOrigins = [
