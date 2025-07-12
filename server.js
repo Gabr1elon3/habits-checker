@@ -8,13 +8,12 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Connect to MongoDB
 connectDB();
 
 // Middleware - Updated CORS for deployment
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://habits-checker-frontend.vercel.app/' // 👈 Replace with your deployed frontend URL
+  'https://habits-checker-frontend.vercel.app' 
 ];
 
 app.use(cors({
